@@ -1,6 +1,6 @@
 package ar.org.centro8.java.curso.entidades;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import ar.org.centro8.java.curso.entidades.enums.EstadoFactura;
 import ar.org.centro8.java.curso.entidades.enums.MetodoPago;
@@ -18,8 +18,8 @@ import lombok.ToString;
 public class Factura {
 
     private int idFactura;
-    private Cliente cliente;
-    private Date fecha;
+    private int cliente;
+    private LocalDate fecha;
     private double total;
     private EstadoFactura estado;
     private MetodoPago metodoPago;
