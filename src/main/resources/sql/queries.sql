@@ -18,7 +18,7 @@ SELECT
 FROM detalleFacturas d
 JOIN facturas f ON d.idFactura = f.idFactura
 JOIN clientes c ON f.idCliente = c.idCliente
-JOIN producto p ON d.idProducto = p.idProducto
+JOIN productos p ON d.idProducto = p.idProducto
 WHERE f.idFactura = 1;
 
 -- LISTAR PRODUCTOS POR SU CATEGORIA
@@ -27,7 +27,7 @@ SELECT
     p.stock, 
     p.precioVenta, 
     c.nombre AS Categoria
-FROM producto p
+FROM productos p
 JOIN categoria c ON p.idCategoria = c.idCategoria
 ORDER BY c.nombre;
 
@@ -37,7 +37,7 @@ ORDER BY c.nombre;
 
 -- PRODUCTOS SIN STOCK
 SELECT * 
-FROM producto 
+FROM productos 
 WHERE stock = 0;
 
 -- TOTAL VENDIDO POR PRODUCTO
@@ -71,6 +71,6 @@ SELECT * FROM detalleFacturas WHERE idFactura = 2;
 UPDATE facturas SET idFactura = 100 WHERE idFactura = 1;
 
 -- ACTUALIZAR STOCK DESPUÉS DE UNA VENTA
-UPDATE producto 
+UPDATE productos
 SET stock = stock - 3 
 WHERE idProducto = 1;

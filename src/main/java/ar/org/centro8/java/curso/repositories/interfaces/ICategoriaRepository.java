@@ -5,7 +5,7 @@ import java.util.List;
 
 import ar.org.centro8.java.curso.entidades.Categoria;
 
-public interface ICategoriaDAO {
+public interface ICategoriaRepository {
 
     /**
      * Metodo para crear una nueva categoria y guardarla en la base de datos.

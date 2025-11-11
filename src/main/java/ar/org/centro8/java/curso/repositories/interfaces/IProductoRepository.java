@@ -5,7 +5,7 @@ import java.util.List;
 
 import ar.org.centro8.java.curso.entidades.Producto;
 
-public interface IProductoDAO {
+public interface IProductoRepository {
 
     /**
      * Metodo para crear un nuevo producto y guardarlo en la base de datos.

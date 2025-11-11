@@ -5,7 +5,7 @@ import java.util.List;
 
 import ar.org.centro8.java.curso.entidades.Cliente;
 
-public interface IClienteDAO {
+public interface IClienteRepository {
 
     /**
      * * Metodo para crear un nuevo cliente y guardarlo en la base de datos.
@@ -44,6 +44,6 @@ public interface IClienteDAO {
      * Metodos adicionales si es necesario para filtrar
      * //Buscar por apellido
      * List<Cliente> findByApellido(String apellido) throws SQLException;
-     * //Bus
+     * //
      */
 }

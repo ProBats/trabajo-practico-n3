@@ -5,7 +5,7 @@ USE sql5807139;
 -- -----------------------------------------------------
 -- Table categorias
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS categoria (
+CREATE TABLE IF NOT EXISTS categorias (
     idCategoria INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     descripcion VARCHAR(100) NULL,
@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS categoria (
 -- -----------------------------------------------------
 -- Table producto
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS producto (
+CREATE TABLE IF NOT EXISTS productos (
     idProducto INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     idCategoria INT NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS producto (
     activo BOOLEAN DEFAULT 1,
     CONSTRAINT fk_Producto_categoria
         FOREIGN KEY (idCategoria)
-        REFERENCES categoria (idCategoria)
+        REFERENCES categorias (idCategoria)
         ON DELETE RESTRICT
         ON UPDATE CASCADE
 );
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS producto (
 -- -----------------------------------------------------
 -- Table clientes
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS cliente (
+CREATE TABLE IF NOT EXISTS clientes (
     idCliente INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     apellido VARCHAR(100) NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS cliente (
 -- -----------------------------------------------------
 -- Table facturas
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS factura (
+CREATE TABLE IF NOT EXISTS facturas (
     idFactura INT AUTO_INCREMENT PRIMARY KEY,
     idCliente INT NOT NULL,
     fecha DATE NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS factura (
     metodoPago ENUM('EFECTIVO','TARJETA_CREDITO','TARJETA_DEBITO','TRANSFERENCIA','MERCADO_PAGO') DEFAULT 'EFECTIVO',
     CONSTRAINT fk_Factura_Cliente1
         FOREIGN KEY (idCliente)
-        REFERENCES cliente (idCliente)
+        REFERENCES clientes (idCliente)
         ON DELETE RESTRICT
         ON UPDATE CASCADE
 );
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS factura (
 -- -----------------------------------------------------
 -- Table detalleFacturas
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS detalleFactura (
+CREATE TABLE IF NOT EXISTS detalleFacturas (
     idProducto INT NOT NULL,
     idFactura INT NOT NULL,
     cantidad INT NOT NULL,
@@ -80,12 +80,12 @@ CREATE TABLE IF NOT EXISTS detalleFactura (
     PRIMARY KEY (idProducto, idFactura),
     CONSTRAINT fk_Producto_has_Factura_Producto1
         FOREIGN KEY (idProducto)
-        REFERENCES producto (idProducto)
+        REFERENCES productos (idProducto)
         ON DELETE RESTRICT
         ON UPDATE CASCADE,
     CONSTRAINT fk_Producto_has_Factura_Factura1
         FOREIGN KEY (idFactura)
-        REFERENCES factura (idFactura)
+        REFERENCES facturas (idFactura)
         ON DELETE CASCADE
         ON UPDATE CASCADE
         );
