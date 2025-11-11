@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS sql5807040;
-CREATE DATABASE IF NOT EXISTS sql5807040;
-USE sql5807040;
+DROP DATABASE IF EXISTS sql5807139;
+CREATE DATABASE IF NOT EXISTS sql5807139;
+USE sql5807139;
 
 -- -----------------------------------------------------
 -- Table categorias
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS producto (
 -- -----------------------------------------------------
 -- Table clientes
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS clientes (
+CREATE TABLE IF NOT EXISTS cliente (
     idCliente INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
     apellido VARCHAR(100) NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE IF NOT EXISTS clientes (
 -- -----------------------------------------------------
 -- Table facturas
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS facturas (
+CREATE TABLE IF NOT EXISTS factura (
     idFactura INT AUTO_INCREMENT PRIMARY KEY,
     idCliente INT NOT NULL,
     fecha DATE NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS facturas (
     metodoPago ENUM('EFECTIVO','TARJETA_CREDITO','TARJETA_DEBITO','TRANSFERENCIA','MERCADO_PAGO') DEFAULT 'EFECTIVO',
     CONSTRAINT fk_Factura_Cliente1
         FOREIGN KEY (idCliente)
-        REFERENCES clientes (idCliente)
+        REFERENCES cliente (idCliente)
         ON DELETE RESTRICT
         ON UPDATE CASCADE
 );
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS facturas (
 -- -----------------------------------------------------
 -- Table detalleFacturas
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS detalleFacturas (
+CREATE TABLE IF NOT EXISTS detalleFactura (
     idProducto INT NOT NULL,
     idFactura INT NOT NULL,
     cantidad INT NOT NULL,
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS detalleFacturas (
         ON UPDATE CASCADE,
     CONSTRAINT fk_Producto_has_Factura_Factura1
         FOREIGN KEY (idFactura)
-        REFERENCES facturas (idFactura)
+        REFERENCES factura (idFactura)
         ON DELETE CASCADE
         ON UPDATE CASCADE
         );

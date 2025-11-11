@@ -25,7 +25,7 @@ INSERT INTO producto (nombre, idCategoria, precioCompra, precioVenta, stock, est
 ('Aceite para Motor', 9, 10.00, 20.00, 40, 'DISPONIBLE', 1);
 
 
-INSERT INTO clientes (nombre, apellido, dni, telefono, email, direccion, estado, activo) VALUES
+INSERT INTO cliente (nombre, apellido, dni, telefono, email, direccion, estado, activo) VALUES
 ('Juan', 'Pérez', '12345678', '1122334455', 'juanp@gmail.com', 'Av. Siempre Viva 123', 'ACTIVO', 1),
 ('María', 'Gómez', '23456789', '1144556677', 'mariag@gmail.com', 'Calle Luna 45', 'ACTIVO', 1),
 ('Carlos', 'Ramírez', '34567890', '1133221100', 'carlosr@hotmail.com', 'Calle Sol 89', 'ACTIVO', 1),
@@ -38,7 +38,7 @@ INSERT INTO clientes (nombre, apellido, dni, telefono, email, direccion, estado,
 ('Pedro', 'Méndez', '01234567', '1122446688', 'pedrom@gmail.com', 'Calle Rosales 15', 'ACTIVO', 1);
 
 
-INSERT INTO facturas (idCliente, fecha, total, estado, metodoPago) VALUES
+INSERT INTO factura (idCliente, fecha, total, estado, metodoPago) VALUES
 (1, '2025-11-01', 250.00, 'PAGADO', 'EFECTIVO'),
 (2, '2025-11-02', 480.00, 'PAGADO', 'TARJETA_CREDITO'),
 (3, '2025-11-03', 120.00, 'PENDIENTE', 'EFECTIVO'),
@@ -51,7 +51,7 @@ INSERT INTO facturas (idCliente, fecha, total, estado, metodoPago) VALUES
 (10, '2025-11-10', 180.00, 'PENDIENTE', 'EFECTIVO');
 
 
-INSERT INTO detalleFacturas (idProducto, idFactura, cantidad, precioUnitario, subTotal) VALUES
+INSERT INTO detalleFactura (idProducto, idFactura, cantidad, precioUnitario, subTotal) VALUES
 (1, 1, 1, 399.99, 399.99),
 (3, 1, 2, 45.00, 90.00),
 (2, 2, 1, 599.99, 599.99),
