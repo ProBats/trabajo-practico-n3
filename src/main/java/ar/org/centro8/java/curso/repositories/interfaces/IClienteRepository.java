@@ -11,7 +11,7 @@ public interface IClienteRepository {
      * * Metodo para crear un nuevo cliente y guardarlo en la base de datos.
      * @throws SQLException
      */
-    void create() throws SQLException;
+    void create(Cliente Cliente) throws SQLException;
     /**
      * Metodo para buscar un cliente por su id.
      * @param id -> Id del cliente a buscar

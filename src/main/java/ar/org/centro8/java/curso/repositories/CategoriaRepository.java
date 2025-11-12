@@ -44,9 +44,8 @@ public class CategoriaRepository implements ICategoriaRepository{
             ps.executeUpdate();
 
             try (ResultSet keys = ps.getGeneratedKeys()) {
-                if (keys.next()) {
-                    categoria.setIdCategoria(1);
-                }
+                if (keys.next()) categoria.setIdCategoria(1);
+                
             } 
         } 
     }
