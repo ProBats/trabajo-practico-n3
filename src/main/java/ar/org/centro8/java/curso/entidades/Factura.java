@@ -18,7 +18,7 @@ import lombok.ToString;
 public class Factura {
 
     private int idFactura;
-    private int cliente;
+    private int idCliente;
     private LocalDate fecha;
     private double total;
     private EstadoFactura estado;
